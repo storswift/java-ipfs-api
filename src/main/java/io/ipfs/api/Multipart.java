@@ -52,7 +52,7 @@ public class Multipart {
         writer.flush();
     }
 
-    public void addSubtree(Path parentPath, NamedStreamable dir) throws IOException {
+    public void addSubtree(Path parentPath, NamedStreamable dir) {
         Path dirPath = parentPath.resolve(dir.getName().get());
         addDirectoryPart(dirPath);
         for (NamedStreamable f: dir.getChildren()) {

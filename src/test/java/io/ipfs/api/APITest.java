@@ -417,7 +417,7 @@ public class APITest {
         Assert.assertTrue( ! results.get(0).equals(Collections.emptyMap()));
     }
 
-    private static String toEscapedHex(byte[] in) throws IOException {
+    private static String toEscapedHex(byte[] in) {
         StringBuilder res = new StringBuilder();
         for (byte b : in) {
             res.append("\\x");

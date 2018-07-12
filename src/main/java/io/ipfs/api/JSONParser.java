@@ -361,8 +361,8 @@ public class JSONParser
             try
             {
                 Class cls = obj.getClass();
-                Method m = cls.getDeclaredMethod("toJSON", new Class[0]);
-                Object jsonObj = m.invoke(obj, new Object[0]);
+                Method m = cls.getDeclaredMethod("toJSON");
+                Object jsonObj = m.invoke(obj);
                 buf.append(toString(jsonObj));
             }
             catch (Exception e)

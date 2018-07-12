@@ -201,7 +201,7 @@ public class CborEncoder {
         // extends the sign over all bits...
         int sign = value >> 31;
         // in case value is negative, this bit should be set...
-        int mt = (int) (sign & NEG_INT_MASK);
+        int mt = sign & NEG_INT_MASK;
         // complement negative value...
         writeUInt16(mt, (sign ^ value) & 0xffff);
     }
@@ -246,7 +246,7 @@ public class CborEncoder {
         // extends the sign over all bits...
         int sign = value >> 31;
         // in case value is negative, this bit should be set...
-        int mt = (int) (sign & NEG_INT_MASK);
+        int mt = sign & NEG_INT_MASK;
         // complement negative value...
         writeUInt8(mt, (sign ^ value) & 0xff);
     }
@@ -312,11 +312,11 @@ public class CborEncoder {
         // extends the sign over all bits...
         int sign = value >> 31;
         // in case value is negative, this bit should be set...
-        int mt = (int) (sign & NEG_INT_MASK);
+        int mt = sign & NEG_INT_MASK;
         // complement negative value...
         value = Math.min(0x17, (sign ^ value));
 
-        m_os.write((int) (mt | value));
+        m_os.write(mt | value);
     }
 
     /**

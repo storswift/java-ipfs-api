@@ -79,7 +79,7 @@ public interface NamedStreamable
             return false;
         }
 
-        public InputStream getInputStream() throws IOException {
+        public InputStream getInputStream() {
             return new ByteArrayInputStream(data);
         }
 
@@ -104,7 +104,7 @@ public interface NamedStreamable
         }
 
         @Override
-        public InputStream getInputStream() throws IOException {
+        public InputStream getInputStream() {
             throw new IllegalStateException("Cannot get an input stream for a directory!");
         }
 
